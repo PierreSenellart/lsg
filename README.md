@@ -19,8 +19,7 @@ as the executables.
 compilation of RunTests uses libtut, the Test Unit Framework (provided).
 
 ## Executables
-
-BuildGraphFromEdgeList
+### BuildGraphFromEdgeList
 
   Build a PackedGraph from a file containing edges of the graph and a
 file with node labels (one per line). The edge file must be in either of
@@ -44,41 +43,41 @@ with values
 ```
 (the second format allows weighted edges)
 
-ComputeInvariantMeasure
+### ComputeInvariantMeasure
   Compute the equilibrium measure of a strongly connected stochastic
 graph.
 
-DumpSampleFiles
+### DumpSampleFiles
   Test program for dumping XML graphs of the different steps of each
 "Related Nodes" method.
 
-ExtractFirstSCC
+### ExtractFirstSCC
   Extract the main strongly component of a graph.
 
-Idftrans
+### Idftrans
   Modify a graph by amplifying transition probabilities by log(1/nu_i),
 where nu is the equilibrium measure.
   
-Normalize
+### Normalize
   Stochastify a graph.
 
-PageRank
+### PageRank
   Compute PageRank over a graph.
 
-RelatedPages
+### RelatedPages
   Computed "Related Nodes" over a graph, through various different
 methods.
 
-Reverse
+### Reverse
   Compute the reversed Markov chain (with respect to a measure).
 
-Statistics
+### Statistics
   Give some basic statistics about a graph.
 
-Symmetrize
+### Symmetrize
   Compute the symmetrized Markov chain (with respect to a measure).
 
-TextVector2BinaryVector
+### TextVector2BinaryVector
   Convert between the two different representations of a (Row)Vector.
 
 ## License
