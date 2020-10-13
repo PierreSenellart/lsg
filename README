@@ -25,19 +25,22 @@ BuildGraphFromEdgeList
 file with node labels (one per line). The edge file must be in either of
 the following format:
 
+```
 3
 no values
 0 1 2
 1 2
 2 0
-  
+```  
+
 or:
+```
 3
 with values
 0 1,1 2,3
 1 2,3
 2 0,1
-
+```
 (the second format allows weighted edges)
 
 ComputeInvariantMeasure
