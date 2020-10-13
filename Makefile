@@ -1,5 +1,3 @@
-# $Id: Makefile,v 1.4 2006-11-22 15:59:38 pierre Exp $
-
 #  Copyright (c) 2006 Yann Ollivier <yann.ollivier@normalesup.org>
 #                     Pierre Senellart <pierre@senellart.com>
 #  
@@ -22,7 +20,7 @@
 #  OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 #  USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-CXXFLAGS=-ansi -pedantic -Wall -W -Ilib
+CXXFLAGS=-ansi -pedantic -Wall -W -Ilsg
 
 ifdef DEBUG
 CXXFLAGS+=-g

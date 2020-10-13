@@ -1,5 +1,3 @@
-/* $Id: ConnectedComponents.h,v 1.3 2008-04-20 12:32:56 yann Exp $ */
-
 /*
  *  Copyright (c) 2006 Yann Ollivier <yann.ollivier@normalesup.org>
  *                     Pierre Senellart <pierre@senellart.com>

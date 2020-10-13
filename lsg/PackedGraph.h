@@ -1,5 +1,3 @@
-/* $Id: PackedGraph.h,v 1.4 2008-08-08 13:11:35 pierre Exp $ */
-
 /*
  *  Copyright (c) 2006 Yann Ollivier <yann.ollivier@normalesup.org>
  *                     Pierre Senellart <pierre@senellart.com>

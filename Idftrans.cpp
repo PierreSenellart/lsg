@@ -1,5 +1,3 @@
-/* $Id: Idftrans.cpp 8147 2013-07-09 08:29:13Z pierre $ */
-
 /*
  *  Copyright (c) 2006 Yann Ollivier <yann.ollivier@normalesup.org>
  *                     Pierre Senellart <pierre@senellart.com>
