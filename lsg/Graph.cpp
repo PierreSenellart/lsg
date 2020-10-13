@@ -31,6 +31,8 @@
 #include <cassert>
 #include <algorithm>
 
+#include "unistd.h"
+
 #include "MutableGraph.h"
 #include "Tools.h"
 
@@ -103,7 +105,8 @@ namespace lsg {
   FILE *Graph::beginStore(const string &filename, node_t size) const
   {
     FILE *f=fopen(filename.c_str(),"w");
-    ftruncate(fileno(f),0);
+    if(ftruncate(fileno(f),0))
+      return 0;
     fseek(f,0,SEEK_SET);
     
     if(!f)

@@ -70,7 +70,15 @@ bool IsLinked(const Graph&g,node_t source,node_t dest)
  return g(source,dest)>0.;
 }
 
-  template<class T>
+template<class T>
+void addResultsToFileForSQLImport(const string &filename,
+                                  const string &method,
+                                  node_t base_article,
+                                  const Graph &g,
+                                  const T&v,
+                                  unsigned nb);
+
+template<class T>
 void PrintNamesOfBest(const Graph &g,const T& v, node_t nbest,const std::string &method, node_t base_article)
 {
   vector<pair<node_t,value_t> > s(v.size());
@@ -372,7 +380,7 @@ void FBSiblings(const Graph&g,node_t node,const RowVector& v)
  cout<<endl;
 }
 
-void CosineMethod(const Graph&g,node_t node,const RowVector& v)
+void CosineMethod(const Graph&g,node_t node,const RowVector&)
 {
  unsigned int size=g.getNbNodes();
  NodeArray spherefb;directedSphere(g,node,"FB",spherefb);

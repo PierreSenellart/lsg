@@ -27,6 +27,8 @@
 #include <fstream>
 #include <iterator>
 
+#include <unistd.h>
+
 #include "lsg.h"
 
 #include "Tools.h"

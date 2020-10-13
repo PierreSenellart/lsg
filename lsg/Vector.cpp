@@ -30,6 +30,8 @@
 #include <cassert>
 #include <cstring>
 
+#include <unistd.h>
+
 #include "Vector.h"
 #include "Graph.h"
 #include "SparseArray.h"
@@ -116,12 +118,14 @@ namespace lsg {
       return;
 
     unsigned int s;
-    fread(&s,sizeof(unsigned int),1,f);
+    if(fread(&s,sizeof(unsigned int),1,f)!=sizeof(unsigned int))
+      return;
 
     resize(s);
 
     for(unsigned int i=0;i<s;++i)
-      fread(&(*this)[i],sizeof(double),1,f);
+      if(fread(&(*this)[i],sizeof(double),1,f)!=sizeof(double))
+        return;
 
     fclose(f);
   }
@@ -129,7 +133,9 @@ namespace lsg {
   bool Vector::store(const std::string &filename) const
   {
     FILE *f=fopen(filename.c_str(),"w");
-    ftruncate(fileno(f),0);
+    if(ftruncate(fileno(f),0))
+      return false;
+
     fseek(f,0,SEEK_SET);
 
     if(!f)
