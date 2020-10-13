@@ -1,3 +1,17 @@
 *.P
+*.a
 *.d
 *.o
+BuildGraphFromEdgeList
+ComputeInvariantMeasure
+DumpSampleFiles
+ExtractFirstSCC
+Idftrans
+Normalize
+PageRank
+RelatedPages
+Reverse
+RunTests
+Statistics
+Symmetrize
+TextVector2BinaryVector
