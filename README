@@ -1,25 +1,24 @@
-# lsg: Large sparse graph library
+This is the large sparse graph library, a C++ library for dealing with
+large (several million nodes) sparse graphs.
 
-The Large Sparse Graph library is a C++ library for working with large sparse graphs (on disk, without loading them in memory). In particular, it includes methods used for computing related nodes in a graph, as discussed in a [AAAI 2007 paper](https://pierre.senellart.com/publications/ollivier2007finding/).
-
-## Prerequisites
-
+PREREQUISITES
+-------------
 GNU make, a reasonably recent C++ compiler. The library has only been
 tested on i386-linux, x86_64-linux, and sun4u-sunos9 architectures, but
 should work with other architectures, possibly with minor changes.
 
-## Compilation
-
+COMPILATION
+-----------
 "make" should be enough to compile the graph library lsg/lsg.a, as well
 as the executables.
 
-## Tests
-
+TESTS
+-----
 ./RunTests run all test units. Every test should pass. Note that the
 compilation of RunTests uses libtut, the Test Unit Framework (provided).
 
-## Executables
-
+EXECUTABLES
+-----------
 BuildGraphFromEdgeList
 
   Build a PackedGraph from a file containing edges of the graph and a
@@ -78,17 +77,9 @@ Symmetrize
 TextVector2BinaryVector
   Convert between the two different representations of a (Row)Vector.
 
-## License
+CONTACT
+-------
+If you have any question, feel free to contact Pierre Senellart
+<pierre@senellart.com>.
 
-ProvSQL is provided as open-source software under the MIT License. See [LICENSE](LICENSE).
-
-## Contact
-
-https://github.com/PierreSenellart/lsg
-
-[Pierre Senellart](https://pierre.senellart.com/) <pierre@senellart.com>
-
-This is joint work with [Yann Ollivier](http://www.yann-ollivier.org/)
-
-Bug reports and feature requests are
-preferably sent through the *Issues* feature of GitHub.
+# $Id: README 8147 2013-07-09 08:29:13Z pierre $
