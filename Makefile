@@ -41,7 +41,8 @@ LIB_LSG=lsg/lsg.a
 APPS=RelatedPages BuildGraphFromEdgeList ExtractFirstSCC \
      ComputeInvariantMeasure \
      Normalize Symmetrize Reverse Idftrans Statistics \
-     TextVector2BinaryVector DumpSampleFiles PageRank
+     TextVector2BinaryVector DumpSampleFiles PageRank \
+     Ancestors
 
 all: $(APPS) RunTests
 
