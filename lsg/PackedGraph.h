@@ -144,9 +144,9 @@ namespace lsg {
     node_t size;
     bool with_labels;
     bool with_values;
-    const node_t *indexr;
-    const node_t *indexc;
-    const node_t *indexl;
+    const unsigned long *indexr;
+    const unsigned long *indexc;
+    const unsigned long *indexl;
     node_t *rows;
     node_t *columns;
     value_t *values;

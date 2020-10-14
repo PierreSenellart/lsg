@@ -38,7 +38,7 @@ const double damping_factor=1.-0.15;
 const double threshold=.01;
 
 struct Comparator {
-  bool operator()(const pair<node_t,double> &a,const pair<node_t,double> &b) {
+  bool operator()(const pair<node_t,double> &a,const pair<node_t,double> &b) const {
     return a.second>b.second?1:(a.second<b.second?0:(a.first<b.first?1:0));
   }
 };

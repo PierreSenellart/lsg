@@ -125,23 +125,23 @@ namespace lsg {
     node_t nbEdges=getNbEdges();
     fwrite(&nbEdges,sizeof(node_t),1,f);
 
-    node_t offsetr=0,offsetc=0,offsetl=0;
+    unsigned long offsetr=0,offsetc=0,offsetl=0;
 
     bool with_values=hasValues();
 
     for(node_t i=0;i<size;++i) {
-      fwrite(&offsetr,sizeof(node_t),1,f);
+      fwrite(&offsetr,sizeof(unsigned long),1,f);
       offsetr+=1+row(i).size()*(with_values?2:1);
     }  
 
     for(node_t i=0;i<size;++i) {
-      fwrite(&offsetc,sizeof(node_t),1,f);
+      fwrite(&offsetc,sizeof(unsigned long),1,f);
       offsetc+=1+column(i).size()*(with_values?2:1);
     }
 
     if(hasLabels()) {
       for(node_t i=0;i<size;++i) {
-        fwrite(&offsetl,sizeof(node_t),1,f);
+        fwrite(&offsetl,sizeof(unsigned long),1,f);
         offsetl+=1+getLabelSize(i);
       }
     }
@@ -199,7 +199,7 @@ namespace lsg {
         continue;
 
       const node_t reindex_i=reindex[i];
-      const unsigned int start=ftell(f);
+      const auto start=ftell(f);
 
       fseek(f,sizeof(node_t),SEEK_CUR); // We'll change this at the end
                                          // of the loop
@@ -224,7 +224,7 @@ namespace lsg {
 
       sort(edges[reindex_i].begin(),edges[reindex_i].end(),CompareByFirst());
 
-      const unsigned int end=ftell(f);
+      const auto end=ftell(f);
       fseek(f,start,SEEK_SET);
       fwrite(&nb,sizeof(node_t),1,f);
       fseek(f,end,SEEK_SET);
@@ -237,7 +237,7 @@ namespace lsg {
         continue;
 
       const node_t reindex_i=reindex[i];
-      const unsigned int start=ftell(f);
+      const auto start=ftell(f);
 
       fseek(f,sizeof(node_t),SEEK_CUR); // We'll change this at the end
                                          // of the loop
@@ -263,7 +263,7 @@ namespace lsg {
         }
       }
       
-      const unsigned int end=ftell(f);
+      const auto end=ftell(f);
       fseek(f,start,SEEK_SET);
       fwrite(&nb,sizeof(node_t),1,f);
       fseek(f,end,SEEK_SET);
@@ -301,24 +301,24 @@ namespace lsg {
     
     fwrite(&nbEdges,sizeof(node_t),1,f);
     
-    node_t offsetr=0,offsetc=0,offsetl=0;
+    unsigned long offsetr=0,offsetc=0,offsetl=0;
 
     bool with_values=true;
 
     for(node_t i=0;i<newSize;++i) {
-      fwrite(&offsetr,sizeof(node_t),1,f);
+      fwrite(&offsetr,sizeof(unsigned long),1,f);
       offsetr+=1+rowSize[i]*(with_values?2:1);
     }  
 
     for(node_t i=0;i<newSize;++i) {
-      fwrite(&offsetc,sizeof(node_t),1,f);
+      fwrite(&offsetc,sizeof(unsigned long),1,f);
       offsetc+=1+columnSize[i]*(with_values?2:1);
     }
     
     if(hasLabels())
       for(node_t i=0;i<oldSize;++i)
         if(nodes[i]) {
-          fwrite(&offsetl,sizeof(node_t),1,f);
+          fwrite(&offsetl,sizeof(unsigned long),1,f);
           offsetl+=1+getLabelSize(i);
         }
 
@@ -347,7 +347,7 @@ namespace lsg {
     vector<vector<pair<node_t,node_t> > > edges(size);
 
     for(node_t i=0;i<size;++i) {
-      unsigned int start=ftell(f);
+      const auto start=ftell(f);
 
       fseek(f,sizeof(node_t),SEEK_CUR); // We'll change this at the end
                                          // of the loop
@@ -382,7 +382,7 @@ namespace lsg {
 
       sort(edges[i].begin(),edges[i].end(),CompareByFirst());
 
-      unsigned int end=ftell(f);
+      const auto end=ftell(f);
       fseek(f,start,SEEK_SET);
       fwrite(&nb,sizeof(node_t),1,f);
       fseek(f,end,SEEK_SET);
@@ -391,7 +391,7 @@ namespace lsg {
     }
 
     for(node_t i=0;i<size;++i) {
-      unsigned int start=ftell(f);
+      const auto start=ftell(f);
       
       fseek(f,sizeof(node_t),SEEK_CUR); // We'll change this at the end
                                          // of the loop
@@ -429,7 +429,7 @@ namespace lsg {
         }
       }
 
-      unsigned int end=ftell(f);
+      const auto end=ftell(f);
       fseek(f,start,SEEK_SET);
       fwrite(&nb,sizeof(node_t),1,f);
       fseek(f,end,SEEK_SET);
@@ -459,17 +459,17 @@ namespace lsg {
     
     fwrite(&nbEdges,sizeof(node_t),1,f);
     
-    node_t offsetr=0,offsetc=0;
+    unsigned long offsetr=0,offsetc=0;
 
     bool with_values=true;
 
     for(node_t i=0;i<size;++i) {
-      fwrite(&offsetr,sizeof(node_t),1,f);
+      fwrite(&offsetr,sizeof(unsigned long),1,f);
       offsetr+=1+rowSize[i]*(with_values?2:1);
     }  
 
     for(node_t i=0;i<size;++i) {
-      fwrite(&offsetc,sizeof(node_t),1,f);
+      fwrite(&offsetc,sizeof(unsigned long),1,f);
       offsetc+=1+columnSize[i]*(with_values?2:1);
     }
 

@@ -71,7 +71,7 @@ namespace lsg {
     if(mmaped_region==MAP_FAILED)
       return;
 
-    indexr=reinterpret_cast<node_t *>(
+    indexr=reinterpret_cast<unsigned long *>(
         reinterpret_cast<char *>(mmaped_region)+position);
 
     if(with_transpose)
@@ -79,8 +79,8 @@ namespace lsg {
     if(with_labels)
       indexl=(with_transpose?indexc:indexr)+size;
 
-    rows=const_cast<node_t*>(
-        indexr+(1+(with_transpose?1:0)+(with_labels?1:0))*size);
+    rows=reinterpret_cast<node_t*>(const_cast<unsigned long *>(
+        indexr+(1+(with_transpose?1:0)+(with_labels?1:0))*size));
 
     if(with_transpose)
       columns=rows+nbEdges*(with_values?2:1)+size;
@@ -116,7 +116,7 @@ namespace lsg {
     rows=columns;
     columns=temp;
 
-    const node_t* const temp2=indexr;
+    const unsigned long* const temp2=indexr;
     indexr=indexc;
     indexc=temp2;
 

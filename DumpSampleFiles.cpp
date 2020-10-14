@@ -63,7 +63,7 @@ void dumpGraph(
 
     if(weights) {
       f << " weight='";
-      if(!isnan((*weights)[i]))
+      if(!isnan(static_cast<long double>((*weights)[i])))
         f << (*weights)[i];
       f << "'";
     }

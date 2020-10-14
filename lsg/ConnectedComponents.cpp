@@ -85,7 +85,7 @@ namespace lsg {
 
   struct OrderBySecondDec {
     int operator()(const pair<node_t,node_t> &a,
-                  const pair<node_t,node_t> &b) {
+                  const pair<node_t,node_t> &b) const {
       return a.second>b.second;
     }
   };
