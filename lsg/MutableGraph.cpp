@@ -153,9 +153,14 @@ namespace lsg {
   }
 
   value_t &MutableGraph::insert_new_edge(node_t i,node_t j) {
-    values.push_back(value_t());
-    SparseArray::iterator it=(*rows)[i]->insert(j,values.size()-1);
-    (*columns)[j]->insert(i,values.size()-1);
+    SparseArray::iterator it = (*rows)[i]->find(j);
+
+    if(it==(*rows)[i]->end()) {
+      values.push_back(value_t());
+      it=(*rows)[i]->insert(j,values.size()-1);
+      (*columns)[j]->insert(i,values.size()-1);
+    }
+
     return *it;
   }
 
@@ -389,12 +394,14 @@ namespace lsg {
 
   void MutableGraph::BatchInsertor::add(node_t i, node_t j, value_t value)
   {
-    graph.values.push_back(value);
+    if((*graph.rows)[i]->find(j)==(*graph.rows)[i]->end()) {
+      graph.values.push_back(value);
 
-    node_t edge=graph.values.size()-1;
+      node_t edge=graph.values.size()-1;
 
-    (*graph.rows)[i]->insert_unordered(j,edge);
-    (*graph.columns)[j]->insert_unordered(i,edge);
+      (*graph.rows)[i]->insert_unordered(j,edge);
+      (*graph.columns)[j]->insert_unordered(i,edge);
+    }
   }
 
   SparseArray::iterator MGSparseArray::begin()
