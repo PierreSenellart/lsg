@@ -43,6 +43,10 @@ with values
 ```
 (the second format allows weighted edges)
 
+Each line after the first two is the adjacence list of a given source node
+(without or with weights). Each target node must appear exactly once, and
+target nodes must appear in order.
+
 ### ComputeInvariantMeasure
   Compute the equilibrium measure of a strongly connected stochastic
 graph.
