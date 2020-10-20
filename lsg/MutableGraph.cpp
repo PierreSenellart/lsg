@@ -389,7 +389,7 @@ namespace lsg {
 
   node_t MutableGraph::getNbEdges() const
   {
-    return accumulate(rows->begin(),rows->end(),0,AddSize());
+    return values.size();
   }
 
   void MutableGraph::BatchInsertor::add(node_t i, node_t j, value_t value)
