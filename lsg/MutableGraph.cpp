@@ -373,6 +373,7 @@ namespace lsg {
   void MutableGraph::writeValues(FILE *f) const
   {
     node_t size=values.size();
+    std::cerr << "Writing " << size << " values from " << ftell(f) << std::endl;
 
     for(node_t i=0;i<size;++i)
       fwrite(&values[i],sizeof(value_t),1,f);
@@ -389,19 +390,17 @@ namespace lsg {
 
   node_t MutableGraph::getNbEdges() const
   {
-    return values.size();
+    return accumulate(rows->begin(),rows->end(),0,AddSize());
   }
 
   void MutableGraph::BatchInsertor::add(node_t i, node_t j, value_t value)
   {
-    if((*graph.rows)[i]->find(j)==(*graph.rows)[i]->end()) {
-      graph.values.push_back(value);
+    graph.values.push_back(value);
 
-      node_t edge=graph.values.size()-1;
+    node_t edge=graph.values.size()-1;
 
-      (*graph.rows)[i]->insert_unordered(j,edge);
-      (*graph.columns)[j]->insert_unordered(i,edge);
-    }
+    (*graph.rows)[i]->insert_unordered(j,edge);
+    (*graph.columns)[j]->insert_unordered(i,edge);
   }
 
   SparseArray::iterator MGSparseArray::begin()
