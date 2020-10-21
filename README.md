@@ -84,6 +84,9 @@ methods.
 ### TextVector2BinaryVector
   Convert between the two different representations of a (Row)Vector.
 
+### Ancestors
+  Print the number of ancestors of a node
+
 ## License
 
 ProvSQL is provided as open-source software under the MIT License. See [LICENSE](LICENSE).
