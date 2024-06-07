@@ -89,7 +89,7 @@ methods.
 
 ## License
 
-ProvSQL is provided as open-source software under the MIT License. See [LICENSE](LICENSE).
+lsg is provided as open-source software under the MIT License. See [LICENSE](LICENSE).
 
 ## Contact
 
